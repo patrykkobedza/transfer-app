@@ -32,9 +32,9 @@ public class ExchangeServiceImpl implements ExchangeService {
             if (sourceCurrency.equals(targetCurrency)) {
                 return BigDecimal.ONE;
             }
-            Map responseMap = restTemplate.getForObject(EXCHANGE_API_URL + sourceCurrency, Map.class);
+            Map<String,Object> responseMap = restTemplate.getForObject(EXCHANGE_API_URL + sourceCurrency, Map.class);
             OpenErApiResponseDTO responseDTO = new OpenErApiResponseDTO(responseMap);
-            logger.info("Fetched exchange rate from external api: " + responseDTO.toString());
+            logger.info("Fetched exchange rates from external api: " + responseDTO.toString());
             return BigDecimal.valueOf(((Number) responseDTO.getRates().get(targetCurrency)).doubleValue());
         } catch (Exception e) {    // In case of failure with geting data from external service will fetch fixed exchange rate from in-memory h2 DB.
             logger.warn("Error while fetching data from external api.. " + e.getMessage());

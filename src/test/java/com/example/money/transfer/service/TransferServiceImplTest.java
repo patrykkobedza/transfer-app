@@ -96,7 +96,7 @@ class TransferServiceImplTest {
                 () -> transferService.transferMoney(new TransferDTO(1L, 2L, BigDecimal.valueOf(60)))
         );
 
-        assertThat(thrown.getMessage(), containsString("Insufficient founds on accountId:1"));
+        assertThat(thrown.getMessage(), containsString("Insufficient founds on source accountId:1"));
     }
 
 }

@@ -36,7 +36,7 @@ public class TransferServiceImpl implements TransferService {
                 .orElseThrow(() -> new NotFoundException("Target account not found."));
 
         if (!isEnoughBalance(transferDTO, sourceAccount)) {
-            throw new InsufficientBalanceException("Insufficient founds on accountId:" + sourceAccount.getOwnerId());
+            throw new InsufficientBalanceException("Insufficient founds on source accountId:" + sourceAccount.getOwnerId());
         }
         BigDecimal exchangeRate = exchangeService.getExchangeRate(sourceAccount.getCurrency(), targetAccount.getCurrency());
         subtractTransferedAmountFromSourceAccount(transferDTO, sourceAccount);

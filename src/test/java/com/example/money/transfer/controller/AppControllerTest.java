@@ -45,7 +45,7 @@ class AppControllerTest {
     }
 
     @Test
-    void transferMoney() throws Exception {
+    void transferMoneyTest() throws Exception {
 
         TransferDTO transferRequest = new TransferDTO(1L, 2L, BigDecimal.TEN);
 
