@@ -31,7 +31,7 @@ public class ErrorHandler {
     }
 
     @ExceptionHandler(InsufficientBalanceException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String handleInsufficientBalanceException(InsufficientBalanceException exc) {
         logger.warn(exc.getMessage());
         return exc.getMessage();
