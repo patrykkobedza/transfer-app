@@ -1,6 +1,6 @@
 # Welcome to transfer app
 
-Application use in memory database for storing accounts,
+Application uses in memory database for storing accounts,
 which are wiped on each restart (data.sql script used to populate db).
 In case of communication failure with external service that provides
 exchange rates (which didn't occur even once while testing), 
